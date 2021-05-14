@@ -66,7 +66,7 @@ class CurrentSong(APIView):
 			room = room[0];
 		else:
 			return Response({}, status=status.HTTP_404_NOT_FOUND)
-		print("Room ", room.host)
+		#print("Room ", room.host)
 		host = room.host
 		endpoint = "player/currently-playing"
 		response = execute_spotify_api_request(host, endpoint)

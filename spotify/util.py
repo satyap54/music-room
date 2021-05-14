@@ -72,7 +72,8 @@ def execute_spotify_api_request(session_id, endpoint, post_=False, put_=False):
 	if post_:
 		post(BASE_URL + endpoint, headers=headers)
 	if put_:
-		put(BASE_URL + endpoint, headers=headers)
+		r = put(BASE_URL + endpoint, headers=headers).json()
+		print(r.json())
 
 	response = get(BASE_URL + endpoint, {}, headers=headers)
 	try:
