@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Button, Typography } from "@material-ui/core";
+import { Grid, Button, Typography, TextField } from "@material-ui/core";
 import CreateRoomPage from "./CreateRoomPage";
 import MusicPlayer from "./MusicPlayer";
 
@@ -129,7 +129,7 @@ export default class Room extends Component {
 
   renderSettingsButton() {
 	return (
-	  <Grid item xs={12} align="center">
+	  <Grid item xs={12} align="center" style={{ paddingTop: "30px"}}>
 		<Button
 		  variant="contained"
 		  color="primary"
@@ -146,24 +146,60 @@ export default class Room extends Component {
 	  return this.renderSettings();
 	}
 	return (
-	  <Grid container spacing={1}>
-		<Grid item xs={12} align="center">
-		  <Typography variant="h4" component="h4">
-			Code: {this.roomCode}
-		  </Typography>
+		<Grid container spacing={2}>
+			<Grid item xs = {8}>
+				<Grid container spacing={1}>
+					<Grid item xs={12} align="center">
+						<Typography variant="h4" component="h4"  style={{ paddingBottom: "20px"}}>
+						Code: {this.roomCode}
+						</Typography>
+					</Grid>
+					<MusicPlayer {...this.state.song}/>
+
+					{this.state.isHost ? this.renderSettingsButton() : null}
+
+					<Grid item xs={12} align="center">
+						<Button
+						variant="contained"
+						color="secondary"
+						onClick={this.leaveButtonPressed}
+						>
+						Leave Room
+						</Button>
+					</Grid>
+				</Grid>
+			</Grid>
+
+			<Grid item xs = {4}>
+				<Typography variant="h6" component="h6">Chat</Typography>
+				<TextField
+					error={this.state.error}
+					label="Start Typing"
+					placeholder="Suggest Songs"
+					//value={this.state.roomCode}
+					helperText={this.state.error}
+					variant="standard"
+					//onChange={this.handleTextFieldChange}
+					size="medium"
+				/>
+				<div className="chatWindow">
+					<ul>
+						<li><Typography>Beautiful Pain</Typography></li>
+						<li><Typography>Without Me</Typography></li>
+						<li><Typography>Hello</Typography></li>
+						<li><Typography>Hello</Typography></li>
+						<li><Typography>Hello</Typography></li>
+						<li><Typography>Hello</Typography></li>
+						<li><Typography>Hello</Typography></li>
+						<li><Typography>Hello</Typography></li>
+						<li><Typography>Hello</Typography></li>
+						<li><Typography>Hello</Typography></li>
+						<li><Typography>Hello</Typography></li>
+						<li><Typography>Hello</Typography></li>
+					</ul>
+				</div>
+			</Grid>
 		</Grid>
-		<MusicPlayer {...this.state.song} />
-		{this.state.isHost ? this.renderSettingsButton() : null}
-		<Grid item xs={12} align="center">
-		  <Button
-			variant="contained"
-			color="secondary"
-			onClick={this.leaveButtonPressed}
-		  >
-			Leave Room
-		  </Button>
-		</Grid>
-	  </Grid>
 	);
   }
 }

@@ -42,12 +42,12 @@ export default class MusicPlayer extends Component {
   render() {
     const songProgress = (this.props.time / this.props.duration) * 100;
     return (
-      <Card style={{paddingTop: "50px", }}>
+      <Card style={{paddingTop: "20px", }}>
         <Grid container alignItems="center">
-          <Grid item align="center" xs={4}>
-            <img src={this.props.image_url} height="100%" width="100%" style={{ paddingLeft: "30px", }}/>
+          <Grid item align="center" xs={3}>
+            <img src={this.props.image_url} height="100%" width="100%" style={{ paddingLeft: "20px", }}/>
           </Grid>
-          <Grid item align="center" xs={8}>
+          <Grid item align="center" xs={9}>
             <Typography component="h5" variant="h5">
               {this.props.title}
             </Typography>
@@ -66,8 +66,8 @@ export default class MusicPlayer extends Component {
                 <SkipNextIcon /> 
               </IconButton>
 
-              <Typography component = "h6" variant = "h6">
-              Votes to Skip :{"  "}  {this.props.votes} /{" "} {this.props.votes_required}
+              <Typography component = "h6" variant = "h6" style={{ paddingLeft: "30px"}}>
+                Votes to Skip :{"  "}  {this.props.votes} /{" "} {this.props.votes_required}
               </Typography>
               
             </div>
