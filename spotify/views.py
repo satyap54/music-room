@@ -7,6 +7,8 @@ from rest_framework.response import Response
 from .util import *
 from  api.models import Room
 from . models import Vote
+import json
+
 
 class AuthURL(APIView):
 	def get(self, request, format = None):
@@ -81,6 +83,7 @@ class CurrentSong(APIView):
 		is_playing = response.get('is_playing')
 		song_id = item.get('id')
 		artist_string = ""
+		lyrics = ""
 
 		for i, artist in enumerate(item.get('artists')):
 			if(i > 0):
@@ -89,7 +92,8 @@ class CurrentSong(APIView):
 			artist_string += name
 		
 		votes = len(Vote.objects.filter(room=room, song_id=song_id))
-
+		lyrics = scrape_lyrics(artist_string, item.get('name'))
+	
 		song = {
 			'title' : item.get('name'),
 			'artist' : artist_string,
@@ -100,6 +104,7 @@ class CurrentSong(APIView):
 			'votes' : votes,
 			'votes_required' : room.votes_to_skip,
 			'id' : song_id,
+			'lyrics': lyrics
 		}
 
 		#print("SOng" , song)

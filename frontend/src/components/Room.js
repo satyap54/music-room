@@ -59,7 +59,7 @@ export default class Room extends Component {
 	  .then((response) => response.json())
 	  .then((data) => {
 		this.setState({ spotifyAuthenticated: data.status });
-		console.log(data.status);
+		// console.log(data.status);
 		if (!data.status) {
 		  fetch("/spotify/get-auth-url")
 			.then((response) => response.json())
@@ -81,19 +81,16 @@ export default class Room extends Component {
 	  })
 	  .then((data) => {
 		this.setState({ song: data });
-		//console.log(data);
 	  });
   }
 
   leaveButtonPressed() {
-	console.log(this.props);
 	const requestOptions = {
 	  method: "POST",
 	  headers: { "Content-Type": "application/json" },
 	};
-	console.log("leaving...");
+	
 	fetch("/api/leave-room", requestOptions).then((_response) => {
-	  
 	  this.props.leaveRoomCallback;
 	  this.props.history.push("/");
 	});

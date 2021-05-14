@@ -10,8 +10,13 @@ class App extends Component{
 
     render(){
         return(
-            <div className = "center">
-                <HomePage />
+            <div>
+                <div class="bg"></div>
+                <div class="bg bg2"></div>
+                <div class="bg bg3"></div>
+                <div className="center content">
+                    <HomePage />
+                </div>
             </div>
         );
     }
