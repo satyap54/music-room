@@ -32,11 +32,11 @@ export default class MusicPlayer extends Component {
   }
 
   skipSong = ()=>{
-	const requestOptions = {
-		method: "POST",
-		headers: { "Content-type" : "application/json" },
-	};
-	fetch('/spotify/skip', requestOptions);
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-type" : "application/json" },
+    };
+    fetch('/spotify/skip', requestOptions);
   }
 
   render() {
