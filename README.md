@@ -48,3 +48,6 @@ Start server with:
 ```
 python manage.py runserver
 ```
+## TODO(s):
+  1) Add Audio visualization (using p5 or canvas)
+  2) Fix redirect fails 
