@@ -214,7 +214,7 @@ export default class Room extends Component {
 
 						{this.state.isHost ? this.renderSettingsButton() : null}
 
-						<Grid item xs={12} align="center">
+						<Grid item xs={12} align="center" style={{ paddingTop: "20px"}}>
 							<Button
 								variant="contained"
 								color="secondary"
