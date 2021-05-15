@@ -69,8 +69,8 @@ html, body{
   }
 
 .chatWindow{
+  padding-top: 10px;
   overflow-y: scroll;
-  overflow-x: scroll;
   min-width: 200px;
   height: 170px;
 }

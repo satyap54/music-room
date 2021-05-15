@@ -29,4 +29,17 @@ module.exports = {
       },
     }),
   ],
+  resolve: {
+    // ... rest of the resolve config
+    fallback: {
+      "path": require.resolve("path-browserify"),
+      "url": false,
+      "stream": false,
+      "zlib": false,
+      "http": false,
+      "querystring": false,
+      "crypto": false,
+      "fs": false
+    }
+  },
 };
